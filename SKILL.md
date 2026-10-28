@@ -24,6 +24,12 @@ Use the installed Rive CLI and the actual project source. RML and CLI details ch
 - For a dance that lifts a foot, move the ankle IK target and any toe target together. Give their live position one writer, then recompute the neutral target from the selected body's calibration on every frame. Check actual foot-to-target distance during the moving pose, not just at rest.
 - Do not claim a body has a fully articulated knee or foot if the source art is a single leg graphic or the foot slot is empty. That needs artwork changes, not only a new bone value.
 
+## Design the motion before polishing curves
+
+- State the action's intent, camera view, weight, start/end state, and the few poses that must read clearly. Block those poses and their timing before adding secondary motion or more keys.
+- Choose curves by purpose: continuous travel through poses needs continuity of speed; an impact or held expression may deliberately stop; a loop needs matching position and velocity at its seam. Judge the rendered movement, not the curve label.
+- Watch the whole action at normal speed, then inspect problem intervals and transitions. For interactive actions, test interruption and return from anticipation, peak, and recovery.
+
 ## Verify and hand off
 
 - Run `rive . --verify` and `rive inspect . --summary`; resolve new errors and distinguish existing source warnings.
@@ -33,5 +39,5 @@ Use the installed Rive CLI and the actual project source. RML and CLI details ch
 - Summarize what was changed, the poses checked, and the path to a directly viewable preview or screenshot.
 - After a Rive task reveals a new verified technique, failure mode, or user-approved proportion, update this skill or its relevant case reference in the same task. Record the cause, correction, and evidence; replace superseded guidance instead of accumulating contradictory rules. Skip routine parameter changes that teach nothing reusable.
 
-For worked lessons on body variants, crouches, acting, and elastic timing, read [references/character-motion-lessons.md](references/character-motion-lessons.md) when those tasks apply. Treat all examples as diagnostic patterns, not universal coordinates.
+For worked lessons on body variants, crouches, acting, and curve selection, read [references/character-motion-lessons.md](references/character-motion-lessons.md) when those tasks apply. Treat all examples as diagnostic patterns, not universal coordinates.
 
