@@ -16,6 +16,7 @@ These are reusable observations from a multi-body, front-facing 2D character stu
 - A foot lift needs coordinated ankle and toe targets. Include moving-foot offsets when calculating IK reach; a neutral-pose reach check can miss failure at the accent.
 - To make the entire character jump, animate the shared root above the floor. Moving feet against a stationary torso can fold long legs without lifting the body. Use separate small compression at landing, then inspect the floor gap and shadow.
 - If a long-leg variant's knees jitter during a root-driven jump, inspect concurrent internal crouch, thigh-length, torso shift, and lean channels. Neutral foot targets alone do not stabilize IK. Disable only the conflicting internal channels for that variant and action when the intended pose is a rigid whole-body hop; retain expressive motion in the head, arms, and face.
+- Do not assume a negative root lift is a safe landing squash: in a rig whose IK targets do not follow the root identically, moving the root below floor contact can spread the knees again. Test that trial in native frames. If it fails, keep the root at or above ground and express compression through existing upper-body artwork and delayed arm/head settling.
 
 ## Facial acting
 
