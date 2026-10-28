@@ -39,5 +39,5 @@ Use the installed Rive CLI and the actual project source. RML and CLI details ch
 - Summarize what was changed, the poses checked, and the path to a directly viewable preview or screenshot.
 - After a Rive task reveals a new verified technique, failure mode, or user-approved proportion, update this skill or its relevant case reference in the same task. Record the cause, correction, and evidence; replace superseded guidance instead of accumulating contradictory rules. Skip routine parameter changes that teach nothing reusable.
 
-For worked lessons on body variants, crouches, acting, and curve selection, read [references/character-motion-lessons.md](references/character-motion-lessons.md) when those tasks apply. Treat all examples as diagnostic patterns, not universal coordinates.
+For worked lessons on body variants, crouches, acting, and curve selection, read [references/character-motion-lessons.md](references/character-motion-lessons.md) when those tasks apply. For character motion design and squash/stretch, read [references/classical-motion-principles.md](references/classical-motion-principles.md). Treat all examples as diagnostic patterns, not universal coordinates.
 
