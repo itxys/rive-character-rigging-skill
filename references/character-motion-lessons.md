@@ -15,6 +15,7 @@ These are reusable observations from a multi-body, front-facing 2D character stu
 - Do not apply crouch foreshortening to every dance step. A wide step may need a mostly extended leg, quick weight transfer, and a slight knee bend. Inspect the peak stride, not just the landing.
 - A foot lift needs coordinated ankle and toe targets. Include moving-foot offsets when calculating IK reach; a neutral-pose reach check can miss failure at the accent.
 - To make the entire character jump, animate the shared root above the floor. Moving feet against a stationary torso can fold long legs without lifting the body. Use separate small compression at landing, then inspect the floor gap and shadow.
+- If a long-leg variant's knees jitter during a root-driven jump, inspect concurrent internal crouch, thigh-length, torso shift, and lean channels. Neutral foot targets alone do not stabilize IK. Disable only the conflicting internal channels for that variant and action when the intended pose is a rigid whole-body hop; retain expressive motion in the head, arms, and face.
 
 ## Facial acting
 
