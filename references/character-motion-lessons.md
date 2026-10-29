@@ -32,6 +32,7 @@ These are reusable observations from a multi-body, front-facing 2D character stu
 - If an existing ViewModel property already binds both eyes to the same scale, two new direct bindings will compete with it. Give each eye-adjust node one writer and carry the original expression's scale into the new per-eye outputs, so a turn does not break existing surprise/eye-pop actions.
 - Treat this as a visual study until dedicated side-view shapes and draw order exist. A front-only face cannot establish a true 45-degree contour, and long-leg IK should not be repurposed merely to sell yaw.
 - Give the torso and shoulders a brief lead over the head and face so the turn has a cause. Recheck previously accepted actions with zero turn and verify the outer head silhouette remains fixed through both directions.
+- For a front-only body with long segmented legs, large torso width compression can make the character look sliced. Keep the torso mostly full-width, preserve enough shoulder spacing to expose both arms, and move each hip and its corresponding ankle/toe target together for a modest near/far leg overlap. In the Tuanbot body-4 test, translating the torso artwork by itself opened shoulder/hip seams and was reverted. Check consecutive frames and the older action at zero turn before keeping a body-turn adjustment.
 
 ## Curves and visual verification
 
