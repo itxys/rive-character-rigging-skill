@@ -21,3 +21,9 @@ This is an applied synthesis of publicly described animation teaching, not a sub
 - Watch the full action at normal speed first. Then examine consecutive frames around takeoff, contact, and direction changes to judge spacing and knee stability.
 - Compare the neutral and most distorted silhouettes for volume, seam exposure, and preserved character identity. Confirm the body returns to its authored rest shape before the next cycle.
 - Record which layer owns each deformation and which frames actually show it. A successful compile or a head-only improvement is not evidence that the whole body now feels elastic.
+
+## Rive implementation check: preserve the force signal
+
+- Keep the signed source value for an action before clamping it for a particular bone or IK channel. The upward half of a jump can drive root lift and torso stretch while the downward/contact half drives a brief local squash; a leg channel may deliberately receive neither.
+- Inspect the generated script/data path as well as the rendered frames. In one four-body rig, clamping bounce to its nonpositive half before calculating the long-leg body's jump silently zeroed both root lift and torso stretch. The file verified successfully, yet the body stayed stiff. Saving the original bounce value before the clamp restored the intended motion.
+- For a body with IK-sensitive knees, animate root lift only above floor contact, deform its torso artwork locally, and check consecutive frames around takeoff and landing for shoulder/hip seams and knee reversal.
