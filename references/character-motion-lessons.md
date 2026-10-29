@@ -27,12 +27,11 @@ These are reusable observations from a multi-body, front-facing 2D character stu
 
 ## Three-quarter view from front-only art
 
-- A uniform horizontal squash reads as a flattened front view, not a turn. For a temporary 3/4-view cue, coordinate head-shell width, face-plate width and lateral offset, unequal near/far eye sizes, torso width, and shoulder overlap. Preserve the character's established head-to-body ratio.
-- Confirm the transform axes in the actual hierarchy. In one Tuanbot rig, the head artwork's local scaleY controlled visible width, while `face_look_X.x` moved the face laterally; driving `face_look_Y.y` moved it vertically. Inspect both left and right native renders before assigning a turn control.
+- Keep the outer head silhouette stable when the design calls for a round, volumetric head. In the Tuanbot study, compressing or asymmetrically warping the shell during yaw made it look like a thin sheet. The user rejected that approach. Convey the temporary 3/4-view cue through the face plate's width and lateral offset, unequal near/far eye sizes, torso width, and shoulder overlap instead.
+- Confirm the transform axes in the actual hierarchy. In this rig, `face_look_X.x` moved the face laterally; driving `face_look_Y.y` moved it vertically. Inspect both left and right native renders before assigning a turn control.
 - If an existing ViewModel property already binds both eyes to the same scale, two new direct bindings will compete with it. Give each eye-adjust node one writer and carry the original expression's scale into the new per-eye outputs, so a turn does not break existing surprise/eye-pop actions.
-- Treat this as a visual study until dedicated side-view shapes and draw order exist. A front shell compressed into an oval cannot establish a true 45-degree contour, and long-leg IK should not be repurposed merely to sell yaw.
-- If the existing head shell is vector art, a more convincing temporary contour can come from a small nonuniform warp of its existing path vertices. Move all related visible paths together, including the dark outline and light inset. Moving only one vertex tore the outline in a native render; driving the corresponding vertices as a group produced closed left/right silhouettes. In the Tuanbot source, vertex `x` uses bindable key 24, and the nested head artboard can read the parent ViewModel. Confirm that hierarchy and key with `rive schema` before applying this to another rig.
-- Give the torso and shoulders a brief lead over the head and face so the turn has a cause. Recheck previously accepted actions with zero turn; a neutral frame should restore every shell vertex to its authored coordinate, and an old action's character region should remain unchanged.
+- Treat this as a visual study until dedicated side-view shapes and draw order exist. A front-only face cannot establish a true 45-degree contour, and long-leg IK should not be repurposed merely to sell yaw.
+- Give the torso and shoulders a brief lead over the head and face so the turn has a cause. Recheck previously accepted actions with zero turn and verify the outer head silhouette remains fixed through both directions.
 
 ## Curves and visual verification
 
