@@ -25,6 +25,13 @@ These are reusable observations from a multi-body, front-facing 2D character stu
 - For an expressive reaction, align eye, mouth, body, and arm accents. A short anticipation followed by one strong pose, hold, landing, and smaller rebound reads more clearly than uniformly spaced motion.
 - Reuse existing eye artwork when possible. Check whether the rig's eye scale controls are ViewModel properties rather than the nested eye node's transform. Inspect accessories separately; a dark outline may be glasses rather than an eye ring.
 
+## Three-quarter view from front-only art
+
+- A uniform horizontal squash reads as a flattened front view, not a turn. For a temporary 3/4-view cue, coordinate head-shell width, face-plate width and lateral offset, unequal near/far eye sizes, torso width, and shoulder overlap. Preserve the character's established head-to-body ratio.
+- Confirm the transform axes in the actual hierarchy. In one Tuanbot rig, the head artwork's local scaleY controlled visible width, while `face_look_X.x` moved the face laterally; driving `face_look_Y.y` moved it vertically. Inspect both left and right native renders before assigning a turn control.
+- If an existing ViewModel property already binds both eyes to the same scale, two new direct bindings will compete with it. Give each eye-adjust node one writer and carry the original expression's scale into the new per-eye outputs, so a turn does not break existing surprise/eye-pop actions.
+- Treat this as a visual study until dedicated side-view shapes and draw order exist. A front shell compressed into an oval cannot establish a true 45-degree contour, and long-leg IK should not be repurposed merely to sell yaw.
+
 ## Curves and visual verification
 
 - An Elastic curve on every short adjacent segment creates repeated stops and jitter. Apply a bounce only around a selected accent, or author one overshoot and a smaller settle. The curve's period is relative to its segment length: a small period on a very short segment can oscillate rapidly.
